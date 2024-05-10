@@ -8,6 +8,7 @@
     <div class="form-group">
         <label asp-for="Tarefa.Nome" class="control-label"></label>
         <input asp-for="Tarefa.Nome" class="form-control" />
+        <span asp-validation-for="Tarefa.Nome" class="text-danger"></span>
        
     </div>
 
@@ -43,6 +44,7 @@
     <div class="form-group">
         <label asp-for="Tarefa.Prioridade" class="control-label"></label>
         <select class="form-control" asp-for="Tarefa.Prioridade">
+            <span asp-validation-for="Tarefa.Prioridade" class="text-danger"></span>
             @foreach (var prioridade in Model.PrioridadeOptions)
             {
                 <option value="@prioridade">@prioridade</option>
@@ -56,3 +58,10 @@
     <button type="submit" class="btn btn-info">Adicionar</button>
     <a asp-action="Index" class="btn btn-dark">Cancelar</a>
 </form>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

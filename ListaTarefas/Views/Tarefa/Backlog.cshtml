@@ -1,13 +1,13 @@
 ﻿@model TarefaViewData;
 
-<h1>Lista de Tarefas <img src="~/img/verificacao-de-lista.png" height="30" width="30" class="rounded mb-1" /></h1></h1>
+<h1>Lista de Tarefas Pendentes <img src="~/img/verificacao-de-lista.png" height="30" width="30" class="rounded mb-1" /></h1></h1>
 
 
 
 @foreach (var tarefa in Model.ToDo)
 {
     <ul class="list-group border-2 offset-6">
-        <li class="list-group-item">@tarefa.Nome    (@tarefa.DataRegistro)</li>
+        <li class="list-group-item">@tarefa.Nome   |  Data de Registro: @tarefa.DataRegistro</li>
         
     </ul>
 

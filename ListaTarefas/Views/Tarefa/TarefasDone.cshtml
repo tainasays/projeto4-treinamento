@@ -6,7 +6,7 @@
 @foreach (var tarefa in Model.Done)
 {
     <ul class="list-group border-2 offset-6">
-        <li class="list-group-item">@tarefa.Nome    (@tarefa.DataRegistro)</li>
+        <li class="list-group-item">@tarefa.Nome  |  Conclusão: @tarefa.DataConclusao</li>
 
     </ul>
 

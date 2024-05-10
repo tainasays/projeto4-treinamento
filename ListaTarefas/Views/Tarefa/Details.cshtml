@@ -1,0 +1,42 @@
+﻿@model Tarefa;
+
+<h1> Detalhes da Tarefa</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>Id da Tarefa:</th>
+            <th>Nome: </th>
+            <th>Descrição:</th>
+            <th>Data de Início:</th>
+            <th>Status:</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.TarefaId</td>
+            <td>@Model.Nome</td>
+            <td>@Model.Descricao</td>
+            <td>@Model.DataRegistro</td>
+            <td>@Model.Status</td>
+
+            <td><a asp-action="Index" class="btn btn-info">Voltar</a></td>
+
+        </tr>
+    </tbody>
+
+
+
+
+</table>
+
+
+
+
+@* NomeProduto
+QuantidadeProdutoEstoque
+Descricao
+Preco
+Pagamento *@

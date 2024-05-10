@@ -12,29 +12,33 @@ namespace ListaTarefas.Controllers
             new Tarefa {
                 TarefaId = 1,
                 Nome = "Gerenciador de Tarefa",
-                Descricao = "Criar uma lista de tarefas",
+                Descricao = "Criar uma lista de tarefas (To Do List)",
                 DataRegistro = new DateOnly(2000, 11, 01),
-                Status = StatusTarefa.ToDo },
+                Status = StatusTarefa.ToDo ,
+                PrazoDesejado = new DateOnly(2024, 05, 10),
+                Prioridade = PrioridadeTarefa.Alta },
 
             new Tarefa {
                 TarefaId = 2,
-                Nome = "Criação de Exibição",
-                Descricao = "Criar 2 Views",
-                DataRegistro = new DateOnly(2003, 11, 01),
-                Status = StatusTarefa.Doing },
+                Nome = "Estilização das Views",
+                Descricao = "Estilização feita utilizando Bootstrap",
+                DataRegistro = new DateOnly(2024, 05, 09),
+                Status = StatusTarefa.Doing,
+                Prioridade = PrioridadeTarefa.Baixa },
 
             new Tarefa {
                 TarefaId = 3,
-                Nome = "Criação do TaskController",
-                Descricao = "Criar métodos necessários",
+                Nome = "Criação de Exibição",
+                Descricao = "Criar duas Views: Tarefas em Andamento e Tarefas Concluídas.",
                 DataRegistro = new DateOnly(2003, 11, 01),
-                Status = StatusTarefa.Done }
+                DataConclusao = new DateOnly(2024,05,01),
+                Status = StatusTarefa.Done,
+                Prioridade = PrioridadeTarefa.Moderada }
         };
 
 
         public IActionResult Index()
         {
-
             var _tarefasViewData = new TarefaViewData
             {
                 ToDo = _tarefas.Where(t => t.Status == StatusTarefa.ToDo).ToList(),
@@ -46,36 +50,47 @@ namespace ListaTarefas.Controllers
             return View(_tarefasViewData);
         }
 
+
         [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            var _tarefasViewData = new TarefaViewData
+            {
+                //StatusOptions = Enum.GetValues(typeof(StatusTarefa)).Cast<StatusTarefa>().ToList(),
+                PrioridadeOptions = Enum.GetValues(typeof(PrioridadeTarefa)).Cast<PrioridadeTarefa>().ToList()
+
+            };
+            return View(_tarefasViewData);
         }
 
-        [HttpPost]
-        public IActionResult Create([Bind("Nome,Descricao,Status")] Tarefa tarefa)
-        {
 
+        [HttpPost]
+        public IActionResult Create(Tarefa tarefa)
+        {
             if (ModelState.IsValid)
             {
                 tarefa.TarefaId = _tarefas.Count > 0 ? _tarefas.Max(t => t.TarefaId) + 1 : 1;
                 tarefa.DataRegistro = DateOnly.FromDateTime(DateTime.Now);
                 _tarefas.Add(tarefa);
+                return RedirectToAction("Index");
             }
-            return RedirectToAction("Index");
+            return View("Index");
         }
+
 
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var tarefa = _tarefas.FirstOrDefault(t => t.TarefaId == id);
-            if (tarefa == null)
+            TarefaViewData _tarefaViewData = new TarefaViewData
             {
-                return NotFound();
-            }
+                Tarefa = _tarefas.FirstOrDefault(t => t.TarefaId == id),
+                StatusOptions = Enum.GetValues(typeof(StatusTarefa)).Cast<StatusTarefa>().ToList(),
+                PrioridadeOptions = Enum.GetValues(typeof(PrioridadeTarefa)).Cast<PrioridadeTarefa>().ToList()
 
-            return View(tarefa);
+            };            
+            return View(_tarefaViewData);
         }
+        
 
         [HttpPost]
         public IActionResult Edit(Tarefa tarefa)
@@ -87,7 +102,9 @@ namespace ListaTarefas.Controllers
                 {
                     existingTarefa.Nome = tarefa.Nome;
                     existingTarefa.Descricao = tarefa.Descricao;
-                    existingTarefa.DataRegistro = tarefa.DataRegistro;
+                    existingTarefa.Prioridade = tarefa.Prioridade;
+             
+                    existingTarefa.PrazoDesejado = tarefa.PrazoDesejado;
                     if (existingTarefa.Status == StatusTarefa.Done)
                     {
                         existingTarefa.DataConclusao = DateOnly.FromDateTime(DateTime.Now);
@@ -96,7 +113,6 @@ namespace ListaTarefas.Controllers
 
                     existingTarefa.Status = tarefa.Status;
                 }
-
 
                 return RedirectToAction("Index");
             }

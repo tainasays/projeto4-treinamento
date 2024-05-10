@@ -1,6 +1,5 @@
 ﻿@model TarefaViewData;
 
-
 <h1>Lista de Tarefas</h1>
 
 <p>
@@ -11,76 +10,85 @@
     <div class="row">
         <div class="col-sm">
             <h2>Pendente</h2>
-
-            @foreach (var tarefa in Model.ToDo)
+            @if (Model != null)
             {
+                @foreach (var tarefa in Model.ToDo)
+                {
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">@tarefa.Nome</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">@tarefa.DataRegistro</h6>
+                        
+                            @* Tentativa de fazer a descrição ocultar em parte: *@
 
+                            @{
+                                string descricaoExibicao = string.IsNullOrEmpty(tarefa.Descricao) ? "" : tarefa.Descricao.Substring(0, Math.Min(tarefa.Descricao.Length, 14));
+                            }
 
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">@tarefa.Nome</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">@tarefa.DataRegistro</h6>
-                        <p class="card-text">@tarefa.Descricao</p>
-                        <a asp-action="Edit" asp-route-id="@tarefa.TarefaId" class="card-link">Editar</a>
-                        <a asp-action="Details" asp-route-id="@tarefa.TarefaId" class="card-link">Ver mais</a>
-                        <a asp-action="Delete" asp-route-id="@tarefa.TarefaId" class="card-link">Excluir</a>
+                            <p class="card-text"> @Html.Raw(descricaoExibicao)</p>
+                            <h6 class="card-subtitle mb-2 text-muted">@tarefa.Prioridade</h6>
+
+                            <a asp-action="Edit" asp-route-id="@tarefa.TarefaId" class="card-link">Editar</a>
+                            <a asp-action="Details" asp-route-id="@tarefa.TarefaId" class="card-link">Ver mais</a>
+                            <a asp-action="Delete" asp-route-id="@tarefa.TarefaId" class="card-link">Excluir</a>
+                        </div>
                     </div>
-                </div>
-
-
-
-@* 
-                <p>@tarefa.Nome</p>
-                <p>@tarefa.DataRegistro</p> *@
+                }
             }
         </div>
         <div class="col-sm">
 
             <h2>Em Andamento</h2>
-            @foreach (var tarefa in Model.Doing)
+            @if (Model != null)
             {
+                @foreach (var tarefa in Model.Doing)
+                {
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">@tarefa.Nome</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">@tarefa.DataRegistro</h6>
 
+                            @{
+                                string descricaoExibicao = string.IsNullOrEmpty(tarefa.Descricao) ? "" : tarefa.Descricao.Substring(0, Math.Min(tarefa.Descricao.Length, 14));
+                            }
 
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">@tarefa.Nome</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">@tarefa.DataRegistro</h6>
-                        <p class="card-text">@tarefa.Descricao</p>
-                        <a asp-action="Edit" asp-route-id="@tarefa.TarefaId" class="card-link">Editar</a>
-                        <a asp-action="Details" asp-route-id="@tarefa.TarefaId" class="card-link">Ver mais</a>
-                        <a asp-action="Delete" asp-route-id="@tarefa.TarefaId" class="card-link">Excluir</a>
+                            <p class="card-text"> @Html.Raw(descricaoExibicao).</p>
+                            <h6 class="card-subtitle mb-2 text-muted">@tarefa.Prioridade</h6>
+
+                            <a asp-action="Edit" asp-route-id="@tarefa.TarefaId" class="card-link">Editar</a>
+                            <a asp-action="Details" asp-route-id="@tarefa.TarefaId" class="card-link">Ver mais</a>
+                            <a asp-action="Delete" asp-route-id="@tarefa.TarefaId" class="card-link">Excluir</a>
+                        </div>
                     </div>
-                </div>
-
-
-
+                }
             }
 
         </div>
         <div class="col-sm">
             <h2>Concluídas</h2>
-
-            @foreach (var tarefa in Model.Done)
+            @if (Model != null)
             {
+                @foreach (var tarefa in Model.Done)
+                {
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">@tarefa.Nome</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">@tarefa.DataRegistro</h6>
 
+                            @{
+                                string descricaoExibicao = string.IsNullOrEmpty(tarefa.Descricao) ? "" : tarefa.Descricao.Substring(0, Math.Min(tarefa.Descricao.Length, 14));
+                            }
+                            <p class="card-text"> @Html.Raw(descricaoExibicao)</p>
+                            <h6 class="card-subtitle mb-2 text-muted">@tarefa.Prioridade</h6>
 
+                            <p class="card-text">@tarefa.DataConclusao</p>
 
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">@tarefa.Nome</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">@tarefa.DataRegistro</h6>
-                        <p class="card-text">@tarefa.Descricao</p>
-                        <p class="card-text">@tarefa.DataConclusao</p>
-
-                        <a asp-action="Edit" asp-route-id="@tarefa.TarefaId" class="card-link">Editar</a>
-                        <a asp-action="Details" asp-route-id="@tarefa.TarefaId" class="card-link">Ver mais</a>
-                        <a asp-action="Delete" asp-route-id="@tarefa.TarefaId" class="card-link">Excluir</a>
+                            <a asp-action="Edit" asp-route-id="@tarefa.TarefaId" class="card-link">Editar</a>
+                            <a asp-action="Details" asp-route-id="@tarefa.TarefaId" class="card-link">Ver mais</a>
+                            <a asp-action="Delete" asp-route-id="@tarefa.TarefaId" class="card-link">Excluir</a>
+                        </div>
                     </div>
-                </div>
-
-
-
-
+                }    
             }
         </div>
     </div>

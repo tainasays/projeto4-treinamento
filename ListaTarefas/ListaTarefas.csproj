@@ -6,4 +6,15 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Views\Tarefa\TarefaViewModel\**" />
+    <Content Remove="Views\Tarefa\TarefaViewModel\**" />
+    <EmbeddedResource Remove="Views\Tarefa\TarefaViewModel\**" />
+    <None Remove="Views\Tarefa\TarefaViewModel\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.DataAnnotations" Version="2.2.0" />
+  </ItemGroup>
+
 </Project>

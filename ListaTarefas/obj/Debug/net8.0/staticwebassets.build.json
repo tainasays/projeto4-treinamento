@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "J87gcOOXDgtKGLSUUw7XHziDhHPL9u3Zk+lphQ6UXqE=",
+  "Hash": "O45by9RiNCGP++y3LCsxTuqc0bPJvO2UPDsDOGjzlTY=",
   "Source": "ListaTarefas",
   "BasePath": "_content/ListaTarefas",
   "Mode": "Default",
@@ -169,6 +169,25 @@
       "OriginalItemSpec": "wwwroot\\img\\list-task.svg"
     },
     {
+      "Identity": "C:\\Users\\thayna.de.santana\\Desktop\\projeto4-ListaTarefas\\Projeto4-ListaTarefasCRUD\\ListaTarefas\\wwwroot\\img\\memphis-computer-monitor-clock-and-folder-in-the-office.png",
+      "SourceId": "ListaTarefas",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\thayna.de.santana\\Desktop\\projeto4-ListaTarefas\\Projeto4-ListaTarefasCRUD\\ListaTarefas\\wwwroot\\",
+      "BasePath": "_content/ListaTarefas",
+      "RelativePath": "img/memphis-computer-monitor-clock-and-folder-in-the-office.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\memphis-computer-monitor-clock-and-folder-in-the-office.png"
+    },
+    {
       "Identity": "C:\\Users\\thayna.de.santana\\Desktop\\projeto4-ListaTarefas\\Projeto4-ListaTarefasCRUD\\ListaTarefas\\wwwroot\\img\\menu-hamburguer.png",
       "SourceId": "ListaTarefas",
       "SourceType": "Discovered",
@@ -186,6 +205,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\menu-hamburguer.png"
+    },
+    {
+      "Identity": "C:\\Users\\thayna.de.santana\\Desktop\\projeto4-ListaTarefas\\Projeto4-ListaTarefasCRUD\\ListaTarefas\\wwwroot\\img\\multitarefa.png",
+      "SourceId": "ListaTarefas",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\thayna.de.santana\\Desktop\\projeto4-ListaTarefas\\Projeto4-ListaTarefasCRUD\\ListaTarefas\\wwwroot\\",
+      "BasePath": "_content/ListaTarefas",
+      "RelativePath": "img/multitarefa.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\multitarefa.png"
     },
     {
       "Identity": "C:\\Users\\thayna.de.santana\\Desktop\\projeto4-ListaTarefas\\Projeto4-ListaTarefasCRUD\\ListaTarefas\\wwwroot\\img\\nota.png",
@@ -226,6 +264,25 @@
       "OriginalItemSpec": "wwwroot\\img\\pendente.png"
     },
     {
+      "Identity": "C:\\Users\\thayna.de.santana\\Desktop\\projeto4-ListaTarefas\\Projeto4-ListaTarefasCRUD\\ListaTarefas\\wwwroot\\img\\secure-data.png",
+      "SourceId": "ListaTarefas",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\thayna.de.santana\\Desktop\\projeto4-ListaTarefas\\Projeto4-ListaTarefasCRUD\\ListaTarefas\\wwwroot\\",
+      "BasePath": "_content/ListaTarefas",
+      "RelativePath": "img/secure-data.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\secure-data.png"
+    },
+    {
       "Identity": "C:\\Users\\thayna.de.santana\\Desktop\\projeto4-ListaTarefas\\Projeto4-ListaTarefasCRUD\\ListaTarefas\\wwwroot\\img\\verificacao-de-lista.png",
       "SourceId": "ListaTarefas",
       "SourceType": "Discovered",
@@ -243,6 +300,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\verificacao-de-lista.png"
+    },
+    {
+      "Identity": "C:\\Users\\thayna.de.santana\\Desktop\\projeto4-ListaTarefas\\Projeto4-ListaTarefasCRUD\\ListaTarefas\\wwwroot\\img\\verificado.png",
+      "SourceId": "ListaTarefas",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\thayna.de.santana\\Desktop\\projeto4-ListaTarefas\\Projeto4-ListaTarefasCRUD\\ListaTarefas\\wwwroot\\",
+      "BasePath": "_content/ListaTarefas",
+      "RelativePath": "img/verificado.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\verificado.png"
     },
     {
       "Identity": "C:\\Users\\thayna.de.santana\\Desktop\\projeto4-ListaTarefas\\Projeto4-ListaTarefasCRUD\\ListaTarefas\\wwwroot\\img\\verificar.png",

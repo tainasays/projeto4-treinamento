@@ -1,0 +1,14 @@
+﻿@model TarefaViewData;
+
+<h1>Lista de Tarefas em Andamento</h1>
+
+
+
+@foreach (var tarefa in Model.Doing)
+{
+    @tarefa.Nome
+    @tarefa.DataRegistro
+    @tarefa.Descricao
+    
+
+}

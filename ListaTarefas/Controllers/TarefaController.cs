@@ -125,6 +125,40 @@ namespace ListaTarefas.Controllers
             _tarefas.Remove(tarefa);
             return RedirectToAction("Index");
         }
+
+
+
+        public IActionResult Backlog()
+        {
+            var _tarefasViewData = new TarefaViewData
+            {
+                ToDo = _tarefas.Where(t => t.Status == StatusTarefa.ToDo).ToList()
+            };
+
+            return View(_tarefasViewData);
+        }
+
+
+
+        public IActionResult TarefasDoing()
+        {
+            var _tarefasViewData = new TarefaViewData
+            {
+                Doing = _tarefas.Where(t => t.Status == StatusTarefa.Doing).ToList()
+            };
+
+            return View(_tarefasViewData);
+        }
+
+        public IActionResult TarefasDone()
+        {
+            var _tarefasViewData = new TarefaViewData
+            {
+                Done = _tarefas.Where(t => t.Status == StatusTarefa.Done).ToList()
+            };
+
+            return View(_tarefasViewData);
+        }
     }
 }
 

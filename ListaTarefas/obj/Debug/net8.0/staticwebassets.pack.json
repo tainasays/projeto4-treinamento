@@ -13,6 +13,42 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\thayna.de.santana\\Desktop\\projeto4-ListaTarefas\\Projeto4-ListaTarefasCRUD\\ListaTarefas\\wwwroot\\img\\carregando.png",
+      "PackagePath": "staticwebassets\\img\\carregando.png"
+    },
+    {
+      "Id": "C:\\Users\\thayna.de.santana\\Desktop\\projeto4-ListaTarefas\\Projeto4-ListaTarefasCRUD\\ListaTarefas\\wwwroot\\img\\cruz.png",
+      "PackagePath": "staticwebassets\\img\\cruz.png"
+    },
+    {
+      "Id": "C:\\Users\\thayna.de.santana\\Desktop\\projeto4-ListaTarefas\\Projeto4-ListaTarefasCRUD\\ListaTarefas\\wwwroot\\img\\editar.png",
+      "PackagePath": "staticwebassets\\img\\editar.png"
+    },
+    {
+      "Id": "C:\\Users\\thayna.de.santana\\Desktop\\projeto4-ListaTarefas\\Projeto4-ListaTarefasCRUD\\ListaTarefas\\wwwroot\\img\\list-task.svg",
+      "PackagePath": "staticwebassets\\img\\list-task.svg"
+    },
+    {
+      "Id": "C:\\Users\\thayna.de.santana\\Desktop\\projeto4-ListaTarefas\\Projeto4-ListaTarefasCRUD\\ListaTarefas\\wwwroot\\img\\menu-hamburguer.png",
+      "PackagePath": "staticwebassets\\img\\menu-hamburguer.png"
+    },
+    {
+      "Id": "C:\\Users\\thayna.de.santana\\Desktop\\projeto4-ListaTarefas\\Projeto4-ListaTarefasCRUD\\ListaTarefas\\wwwroot\\img\\nota.png",
+      "PackagePath": "staticwebassets\\img\\nota.png"
+    },
+    {
+      "Id": "C:\\Users\\thayna.de.santana\\Desktop\\projeto4-ListaTarefas\\Projeto4-ListaTarefasCRUD\\ListaTarefas\\wwwroot\\img\\pendente.png",
+      "PackagePath": "staticwebassets\\img\\pendente.png"
+    },
+    {
+      "Id": "C:\\Users\\thayna.de.santana\\Desktop\\projeto4-ListaTarefas\\Projeto4-ListaTarefasCRUD\\ListaTarefas\\wwwroot\\img\\verificacao-de-lista.png",
+      "PackagePath": "staticwebassets\\img\\verificacao-de-lista.png"
+    },
+    {
+      "Id": "C:\\Users\\thayna.de.santana\\Desktop\\projeto4-ListaTarefas\\Projeto4-ListaTarefasCRUD\\ListaTarefas\\wwwroot\\img\\verificar.png",
+      "PackagePath": "staticwebassets\\img\\verificar.png"
+    },
+    {
       "Id": "C:\\Users\\thayna.de.santana\\Desktop\\projeto4-ListaTarefas\\Projeto4-ListaTarefasCRUD\\ListaTarefas\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

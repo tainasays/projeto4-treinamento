@@ -1,0 +1,14 @@
+﻿@model TarefaViewData;
+
+<h1>Backlog</h1>
+
+
+
+@foreach (var tarefa in Model.ToDo)
+{
+    @tarefa.Nome
+    @tarefa.DataRegistro
+    @tarefa.Descricao
+
+
+}

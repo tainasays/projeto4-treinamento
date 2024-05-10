@@ -28,3 +28,4 @@ C:\Users\thayna.de.santana\Desktop\projeto4-ListaTarefas\Projeto4-ListaTarefasCR
 C:\Users\thayna.de.santana\Desktop\projeto4-ListaTarefas\Projeto4-ListaTarefasCRUD\ListaTarefas\obj\Debug\net8.0\ListaTarefas.pdb
 C:\Users\thayna.de.santana\Desktop\projeto4-ListaTarefas\Projeto4-ListaTarefasCRUD\ListaTarefas\obj\Debug\net8.0\ListaTarefas.genruntimeconfig.cache
 C:\Users\thayna.de.santana\Desktop\projeto4-ListaTarefas\Projeto4-ListaTarefasCRUD\ListaTarefas\obj\Debug\net8.0\ref\ListaTarefas.dll
+C:\Users\thayna.de.santana\Desktop\projeto4-ListaTarefas\Projeto4-ListaTarefasCRUD\ListaTarefas\obj\Debug\net8.0\ListaTarefas.sourcelink.json

@@ -1,0 +1,13 @@
+﻿@model TarefaViewData
+
+<h1>Lista de Tarefas Concluídas</h1>
+
+
+@foreach (var tarefa in Model.Done)
+{
+    @tarefa.Nome
+    @tarefa.DataRegistro
+    @tarefa.Descricao
+    @tarefa.DataConclusao
+    
+}

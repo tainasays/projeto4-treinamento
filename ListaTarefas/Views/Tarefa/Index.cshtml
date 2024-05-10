@@ -1,15 +1,55 @@
 ﻿@model TarefaViewData;
 
-<h1>Lista de Tarefas</h1>
+<div class="container">
+    <div class="row">
 
-<p>
-    <a asp-action="Create" class="btn btn-outline-info btn-sm">Cadastrar Nova Tarefa</a>
-</p>
+        <div class="col-md-8 mb-5 mt-2">
+            <h1>Quadro de Tarefas <img src="/img/list-task.svg" width="30" height="30"/></h1>
+
+        </div>
+
+        <div class="col-md-4 mb-5 mt-3">
+            <p>
+                <a asp-action="Create" class="btn btn-warning btn-md mt-2">Cadastrar Nova Tarefa</a>
+            </p>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+@*Títulos das Colunas*@
+
+<div class="container text-center">
+    <div class="row">
+        <div class="col-md">
+            <h2>Pendente <img src="./img/pendente.png" width="25" height="25" class="rounded mb-1" /></h2>
+        </div>
+            
+
+        <div class="col-md">
+            <h2>Em Andamento <img src="./img/carregando.png" width="25" height="25" class="rounded mb-1" /></h2>
+        </div>
+
+        <div class="col-md">
+            <h2>Concluída <img src="./img/verificar.png" width="25" height="25" class="rounded mb-1" /></h2>
+        </div>
+
+
+    </div>
+
+</div>
+
+@*---------Fim -------------*@
+
 
 <div class="container">
     <div class="row">
-        <div class="col-sm">
-            <h2>Pendente</h2>
+        <div class="col-md bg-danger bg-opacity-50">
+            
             @if (Model != null)
             {
                 @foreach (var tarefa in Model.ToDo)
@@ -17,7 +57,7 @@
                     <div class="card" style="width: 18rem;">
                         <div class="card-body">
                             <h5 class="card-title">@tarefa.Nome</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">@tarefa.DataRegistro</h6>
+                            <h6 class="card-subtitle mb-2 text-muted">Data de Registro: @tarefa.DataRegistro</h6>
                         
                             @* Tentativa de fazer a descrição ocultar em parte: *@
 
@@ -26,19 +66,56 @@
                             }
 
                             <p class="card-text"> @Html.Raw(descricaoExibicao)</p>
-                            <h6 class="card-subtitle mb-2 text-muted">@tarefa.Prioridade</h6>
+                            <h6 class="card-subtitle mb-2 text-muted"><mark>@tarefa.Prioridade</mark></h6>
 
-                            <a asp-action="Edit" asp-route-id="@tarefa.TarefaId" class="card-link">Editar</a>
-                            <a asp-action="Details" asp-route-id="@tarefa.TarefaId" class="card-link">Ver mais</a>
-                            <a asp-action="Delete" asp-route-id="@tarefa.TarefaId" class="card-link">Excluir</a>
+                            <a asp-action="Edit" asp-route-id="@tarefa.TarefaId" class="btn btn-outline-primary btn-sm">Editar</a>
+                            <a asp-action="Details" asp-route-id="@tarefa.TarefaId" class="btn btn-outline-warning btn-sm">Ver mais</a>
+                            <a class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#modalExemplo">Excluir</a>
+
+
+
+
+                            <!-- Botão de Deletar -->
+                            <section id="dialogScreenDelete">
+                                <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                     aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Excluir Tarefa</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Deseja realmente excluir tarefa?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-success" data-dismiss="modal">Não</button>
+                                                <form id="formExcluir" method="post" asp-action="Delete" asp-route-id="@tarefa.TarefaId">
+                                                    <button type="submit" class="btn btn-danger">Sim</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- Fim do botão -->
+
+
+
+                            
+
+
+
                         </div>
                     </div>
                 }
             }
         </div>
-        <div class="col-sm">
+        <div class="col-md bg-warning bg-opacity-50">
 
-            <h2>Em Andamento</h2>
+            <div class="text-center"></div>
             @if (Model != null)
             {
                 @foreach (var tarefa in Model.Doing)
@@ -46,7 +123,7 @@
                     <div class="card" style="width: 18rem;">
                         <div class="card-body">
                             <h5 class="card-title">@tarefa.Nome</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">@tarefa.DataRegistro</h6>
+                            <h6 class="card-subtitle mb-2 text-muted">Data de Registro: @tarefa.DataRegistro</h6>
 
                             @{
                                 string descricaoExibicao = string.IsNullOrEmpty(tarefa.Descricao) ? "" : tarefa.Descricao.Substring(0, Math.Min(tarefa.Descricao.Length, 14));
@@ -55,17 +132,50 @@
                             <p class="card-text"> @Html.Raw(descricaoExibicao).</p>
                             <h6 class="card-subtitle mb-2 text-muted">@tarefa.Prioridade</h6>
 
-                            <a asp-action="Edit" asp-route-id="@tarefa.TarefaId" class="card-link">Editar</a>
-                            <a asp-action="Details" asp-route-id="@tarefa.TarefaId" class="card-link">Ver mais</a>
-                            <a asp-action="Delete" asp-route-id="@tarefa.TarefaId" class="card-link">Excluir</a>
+                            <a asp-action="Edit" asp-route-id="@tarefa.TarefaId" class="btn btn-outline-primary btn-sm">Editar</a>
+                            <a asp-action="Details" asp-route-id="@tarefa.TarefaId" class="btn btn-outline-warning btn-sm">Ver mais</a>
+                            <a class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#modalExemplo">Excluir</a>
+
+
+                            <!-- Botão de Deletar -->
+                            <section id="dialogScreenDelete">
+                                <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                     aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Excluir Tarefa</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Deseja realmente excluir tarefa?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-success" data-dismiss="modal">Não</button>
+                                                <form id="formExcluir" method="post" asp-action="Delete" asp-route-id="@tarefa.TarefaId">
+                                                    <button type="submit" class="btn btn-danger">Sim</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- Fim do botão -->
+
+
+
+
+
                         </div>
                     </div>
                 }
             }
 
         </div>
-        <div class="col-sm">
-            <h2>Concluídas</h2>
+        <div class="col-md bg-success bg-opacity-50">
+            
             @if (Model != null)
             {
                 @foreach (var tarefa in Model.Done)
@@ -73,7 +183,7 @@
                     <div class="card" style="width: 18rem;">
                         <div class="card-body">
                             <h5 class="card-title">@tarefa.Nome</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">@tarefa.DataRegistro</h6>
+                            <h6 class="card-subtitle mb-2 text-muted">Data de Registro: @tarefa.DataRegistro</h6>
 
                             @{
                                 string descricaoExibicao = string.IsNullOrEmpty(tarefa.Descricao) ? "" : tarefa.Descricao.Substring(0, Math.Min(tarefa.Descricao.Length, 14));
@@ -81,11 +191,45 @@
                             <p class="card-text"> @Html.Raw(descricaoExibicao)</p>
                             <h6 class="card-subtitle mb-2 text-muted">@tarefa.Prioridade</h6>
 
-                            <p class="card-text">@tarefa.DataConclusao</p>
+                            <h5 class="card-text">Conclusão: @tarefa.DataConclusao</h5>
 
-                            <a asp-action="Edit" asp-route-id="@tarefa.TarefaId" class="card-link">Editar</a>
-                            <a asp-action="Details" asp-route-id="@tarefa.TarefaId" class="card-link">Ver mais</a>
-                            <a asp-action="Delete" asp-route-id="@tarefa.TarefaId" class="card-link">Excluir</a>
+                            <a asp-action="Edit" asp-route-id="@tarefa.TarefaId" class="btn btn-outline-primary btn-sm">Editar</a>
+                            <a asp-action="Details" asp-route-id="@tarefa.TarefaId" class="btn btn-outline-warning btn-sm">Ver mais</a>
+                            <a class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#modalExemplo">Excluir</a>
+
+
+                            <!-- Botão de Deletar -->
+                            <section id="dialogScreenDelete">
+                                <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                     aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Excluir Tarefa</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Deseja realmente excluir tarefa?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-success" data-dismiss="modal">Não</button>
+                                                <form id="formExcluir" method="post" asp-action="Delete" asp-route-id="@tarefa.TarefaId">
+                                                    <button type="submit" class="btn btn-danger">Sim</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- Fim do botão -->
+
+
+
+
+
+
                         </div>
                     </div>
                 }    
@@ -94,3 +238,12 @@
     </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
